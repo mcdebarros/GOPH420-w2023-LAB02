@@ -4,4 +4,4 @@
 *Instructor:* B. Karchewski  
 *Authors:*  M. de Barros
 
-IMplementation of Newton-Raphson rootfinding method in python
+Implementation of Newton-Raphson rootfinding method in python
