@@ -1,34 +1,37 @@
 import numpy as np
 
-def add(x, y):
+def newton_raphson(x0, fu, fp, eps_s=1e-8):
 
-    """Add two numbers or arrays.
+    """Iterates newton-raphson method until error spec reached.
     Parameters
     ----------
-    x : int or float or array_like
-        The first number to add.
-    y : int or float or array_like
-        The second number to add.
+    xo : int or float
+        Initial guess of the root
+    f : int or float
+        Function for root finding
+    fp : int or float
+        First derivative of function
+    eps_s : int or float
+        Stopping criteria for desired error
+
+        
 
     Returns
     -------
     int or float or array_like
         The sum of x and y.
     """
-    return x + y
+    eps_a = 1
+    xi = x0
+    it = 0
+    
 
-def multiply(x, y):
-    """Multiply two numbers or arrays.
-    Parameters
-    ----------
-    x : int or float or array_like
-        The first number to multiply.
-    y : int or float or array_like
-        The second number to multiply.
+    while eps_a > eps_s:
 
-    Returns
-    -------
-    int or float or array_like
-        The (element-wise) product of x and y.
-    """
-    return x * y
+        dx = float(-fu(xi)/fp(xi))
+        xi += dx
+
+        eps_a = np.abs(dx/xi)
+        it = it + 1
+
+    return (eps_a, xi, it)

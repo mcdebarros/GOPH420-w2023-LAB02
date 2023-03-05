@@ -2,21 +2,23 @@ import numpy as np
 
 from my_python_package.operators import (
 
-        add,
-        multiply,
+        newton_raphson,
         )
 
 def main():
 
-    # test for scalars
-    print(f'add(1, 3): {add(1, 3)}')
-    print(f'multiply(2, 12.): {multiply(2, 12.)}')
+    i = input("Input a function of x: ")
+    p = input("Input the first derivative of the function: ")
+    x0 = float(input("Input an initial guess of the root: "))
+    fu = eval("lambda x: " + i)
+    fp = eval("lambda x: " + p)
+    
 
-    # test for arrays
-    A = np.array([[1, 2, 3], [4, 5, 6]])
-    B = 2. * np.ones(A.shape)
-    print(f'add(A, B):\n{add(A, B)}')
-    print(f'multiply(A, B):\n{multiply(A, B)}')
+    eps_a, xi, it = newton_raphson(x0, fu, fp, eps_s=1e-8)
+
+    print("Value of the root: " , xi)
+    print("Final error: " , eps_a)
+    print("Iterations taken: " , it)
 
 if __name__ == '__main__':
     main()
