@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: my-python-package
+Version: 0.0.1
+Summary: An example Python package
+Author-email: Brandon Karchewski <brandon.karchewski@ucalgary.ca>
+Project-URL: Homepage, https://github.com/mcdebarros/goph-420-lab02
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# GOPH 420 - Inversion and Parameter Estimation for Geophysicists
+
+*Semester:* W2023  
+*Instructor:* B. Karchewski  
+*Authors:*  M. de Barros
+
+Implementation of Newton-Raphson rootfinding method in python
