@@ -13,8 +13,7 @@ def main():
     fu = eval("lambda x: " + i)
     fp = eval("lambda x: " + p)
     
-
-    eps_a, xi, it = newton_raphson(x0, fu, fp, eps_s=1e-8)
+    eps_a, xi, it = newton_raphson(x0, fu, fp, eps_s = 1e-8)
 
     print("Value of the root: " , xi)
     print("Final error: " , eps_a)

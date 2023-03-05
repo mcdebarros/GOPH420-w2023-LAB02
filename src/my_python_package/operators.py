@@ -1,6 +1,6 @@
 import numpy as np
 
-def newton_raphson(x0, fu, fp, eps_s=1e-8):
+def newton_raphson(x0, fu, fp, eps_s = 1e-8):
 
     """Iterates newton-raphson method until error spec reached.
     Parameters
