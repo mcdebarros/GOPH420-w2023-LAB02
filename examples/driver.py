@@ -1,6 +1,6 @@
 import numpy as np
 
-from my_python_package.operators import (
+from newton_raphson.rootfinder import (
 
         newton_raphson,
         )

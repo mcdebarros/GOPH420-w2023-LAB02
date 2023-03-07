@@ -2,7 +2,7 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 [project]
-name = "my_python_package"
+name = "newton_raphson"
 version = "0.0.1"
 authors = [
 { name="Brandon Karchewski", email="brandon.karchewski@ucalgary.ca" },
@@ -13,7 +13,6 @@ requires-python = ">=3.8"
 dependencies = [
 "numpy",
 "matplotlib",
-"sympy",
 ]
 classifiers = [
 "Programming Language :: Python :: 3",
