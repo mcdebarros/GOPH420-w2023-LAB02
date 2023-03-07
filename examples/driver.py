@@ -12,6 +12,13 @@ def main():
     x0 = float(input("Input an initial guess of the root: "))
     fu = eval("lambda x: " + i)
     fp = eval("lambda x: " + p)
+
+    while fp(x0) == 0:
+    
+        print("Your inital guess is an inflection point of the function. Please choose another value.")
+
+        x0 = float(input("Input an initial guess of the root: "))
+    
     
     eps_a, xi, it = newton_raphson(x0, fu, fp, eps_s = 1e-8)
 
