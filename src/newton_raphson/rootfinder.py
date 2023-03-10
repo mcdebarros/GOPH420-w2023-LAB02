@@ -1,6 +1,6 @@
 import numpy as np
 
-def newton_raphson(x0, fu, fp, eps_s = 1e-8):
+def newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8):
 
     """Iterates newton-raphson method until error spec reached.
     Parameters
@@ -18,20 +18,24 @@ def newton_raphson(x0, fu, fp, eps_s = 1e-8):
 
     Returns
     -------
-    int or float or array_like
-        The sum of x and y.
+    eps_a : array-like
+        Error at each iteration
+    
+        
     """
     eps_a = 1
-    xi = x0
+    zeta_r = zeta_0
     it = 0
-    
+    eps_a_arr = np.zeros(0)
 
     while eps_a > eps_s:
 
-        dx = float(-fu(xi)/fp(xi))
-        xi += dx
+        dx = float(-g(zeta_r)/dgdx(zeta_r))
+        zeta_r += dx
 
-        eps_a = np.abs(dx/xi)
+
+        eps_a = np.abs(dx/zeta_r)
+        eps_a_arr = np.append(eps_a_arr,eps_a)
         it = it + 1
 
-    return (eps_a, xi, it)
+    return (eps_a_arr, zeta_r, it)
