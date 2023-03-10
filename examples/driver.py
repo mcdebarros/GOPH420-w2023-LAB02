@@ -31,8 +31,8 @@ def main():
 
     zeta_plot = np.linspace(-zeta_max,(zeta_max),100)
     plt.plot(zeta_plot,g(zeta_plot),'r')
-    plt.plot(zeta_r,g(zeta_r),'k')
-    plt.plot(zeta_0,g(zeta_0),'c')
+    plt.plot(zeta_r,g(zeta_r),'o')
+    plt.plot(zeta_0,g(zeta_0),'o')
     plt.plot()
     plt.grid()
     plt.show()
