@@ -29,15 +29,15 @@ def main():
 
         return ((2*np.pi*f)*((1/np.cos(2*np.pi*f*zeta))**2)) - ((rho_2/rho_1)*zeta_max/(beta_1**2 * beta_2**2 * zeta**2 * np.sqrt((zeta_max)) - zeta**2))
     
-    def c(f):
+    def c(zeta):
         
-        return np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+        return np.sqrt(1/((1/(beta_1**2))-((zeta**2)/(h**2))))
     
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
     f = 0.1
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_1_c = np.append(mode_1_c,cl)
 
     f = 0.2
@@ -45,7 +45,7 @@ def main():
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_1_c = np.append(mode_1_c,cl)
 
     f = 0.5
@@ -53,14 +53,14 @@ def main():
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_1_c = np.append(mode_1_c,cl)
 
     zeta_0 = 1.27
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_2_c = np.append(mode_2_c,cl)
 
     f = 1
@@ -68,21 +68,21 @@ def main():
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_1_c = np.append(mode_1_c,cl)
 
     zeta_0 = 0.69
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_2_c = np.append(mode_2_c,cl)
 
     zeta_0 = 1.15
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_3_c = np.append(mode_3_c,cl)
 
     f = 2
@@ -90,21 +90,21 @@ def main():
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_1_c = np.append(mode_1_c,cl)
 
     zeta_0 = 0.60
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_2_c = np.append(mode_2_c,cl)
 
     zeta_0 = 0.84
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_3_c = np.append(mode_3_c,cl)
 
     f = 5
@@ -112,22 +112,21 @@ def main():
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_1_c = np.append(mode_1_c,cl)
 
     zeta_0 = 0.148
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_2_c = np.append(mode_2_c,cl)
 
     zeta_0 = 0.246
-    print("hello!")
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_3_c = np.append(mode_3_c,cl)
 
     f = 10
@@ -135,21 +134,21 @@ def main():
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_1_c = np.append(mode_1_c,cl)
 
     zeta_0 = 0.0745
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_2_c = np.append(mode_2_c,cl)
 
     zeta_0 = 0.124
 
     eps_a_arr, zeta_r, it = newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8)
 
-    cl = np.sqrt(1/((1/(beta_1**2))-((zeta_r**2)/(h**2))))
+    cl = c(zeta_r)
     mode_3_c = np.append(mode_3_c,cl)
 
     print("Mode 1 Cs: ", mode_1_c)
