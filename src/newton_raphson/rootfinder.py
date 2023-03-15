@@ -1,6 +1,6 @@
 import numpy as np
 
-def newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8):
+def newton_raphson(zeta_0, g, dgdx, eps_s):
 
     """Iterates newton-raphson method until error spec reached.
     Parameters
@@ -30,9 +30,8 @@ def newton_raphson(zeta_0, g, dgdx, eps_s = 1e-8):
 
     while eps_a > eps_s:
 
-        dx = float(-g(zeta_r)/dgdx(zeta_r))
+        dx = float((-g(zeta_r))/(dgdx(zeta_r)))
         zeta_r += dx
-
 
         eps_a = np.abs(dx/zeta_r)
         eps_a_arr = np.append(eps_a_arr,eps_a)
