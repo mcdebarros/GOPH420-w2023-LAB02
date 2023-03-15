@@ -31,11 +31,11 @@ def main():
 
             def g(zeta):
         
-                return (np.tan(2*np.pi*f*zeta)) - ((rho_2/rho_1)*((np.sqrt((zeta_max) - (zeta**2)))/zeta))
+                return ((rho_2/rho_1)*((np.sqrt((zeta_max) - (zeta**2)))/zeta)) - (np.tan(2*np.pi*f[n]*zeta))
     
             def dgdx(zeta):
 
-                return ((2*np.pi*f)*((1/np.cos(2*np.pi*f*zeta))**2)) - ((rho_2/rho_1)*zeta_max/(beta_1**2 * beta_2**2 * zeta**2 * np.sqrt((zeta_max)) - zeta**2))
+                return ((rho_2/rho_1)*zeta_max/(beta_1**2 * beta_2**2 * zeta**2 * np.sqrt((zeta_max)) - zeta**2)) - ((2*np.pi*f[n])*((1/np.cos(2*np.pi*f[n]*zeta))**2))
             
             zeta_r_new = newton_raphson(zeta_0, g, dgdx, eps_s)
 
