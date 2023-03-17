@@ -42,7 +42,16 @@ def main():
             zeta_r_list.append(zeta_r_new)
         
         zeta_r.append(zeta_r_list)
+
+    def c(zeta):
+        
+        return np.sqrt(1/((1/(beta_1**2))-((zeta**2)/(h**2))))
     
+    print(zeta_mode)
+    print(f_mode)
+    print(f)
+    print(zeta_r)
+
     for m in range (4):
 
         zeta_mode_new = []
@@ -53,15 +62,8 @@ def main():
             zeta_mode_new.append(zeta_r[k][m])
             f_mode_new.append(f[k])
 
-        zeta_mode.append(np.array(zeta_mode_new))
-        f_mode.append(np.array(f_mode_new))
-
-    def c(zeta):
-        
-        return np.sqrt(1/((1/(beta_1**2))-((zeta**2)/(h**2))))
-    
-    print(zeta_mode)
-    print(f_mode)
+        zeta_mode.append((zeta_mode_new))
+        f_mode.append((f_mode_new))
 
 if __name__ == '__main__':
     main()
