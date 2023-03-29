@@ -17,13 +17,14 @@ def main():
     zeta_mode = []
     cl_mode = []
     lambda_mode = []
-    eps_it_list = []
+    eps_n_list = []
 
     for n in range (6):
 
         f_new = (((2*n) + 1)/(4*zeta_max))
         f.append(f_new)
         zeta_r_list = []
+        eps_it_list = []
 
         for k in range (n+1):
 
@@ -35,13 +36,14 @@ def main():
     
             def dgdx(zeta):
 
-                return ((rho_2/rho_1)*(zeta_max**2)/(beta_1**2 * beta_2**2 * zeta**2 * np.sqrt((zeta_max**2)) - zeta**2)) - ((2*np.pi*f_new)*((1/np.cos(2*np.pi*f_new*zeta))**2))
+                return -((rho_2*(zeta_max**2))/(rho_1*(zeta**2)*np.sqrt((zeta_max**2)-(zeta**2)))) - ((2*np.pi*f_new)*((1/np.cos(2*np.pi*f_new*zeta))**2))
             
-            zeta_r_new, it, eps_a_arr = newton_raphson(zeta_0, g, dgdx, eps_s)
+            zeta_r_new, it, eps_a_arr, eps_a = newton_raphson(zeta_0, g, dgdx, eps_s)
             zeta_r_list.append(zeta_r_new)
             eps_it_list.append(eps_a_arr)
         
         zeta_r.append(zeta_r_list)
+        eps_n_list.append(eps_it_list)
 
     for m in range (4):
 
@@ -69,6 +71,7 @@ def main():
         plt.plot(f,cl)
     plt.xlabel('f [Hz]')
     plt.ylabel('c_L [m/s]')
+    plt.title('figure 1: c_L as a function of f', fontsize = 7)
     plt.legend([f'mode {k}' for k,_ in enumerate (f_mode)])
 
     plt.subplot(2,1,2)
@@ -76,6 +79,7 @@ def main():
         plt.plot(f,lam)
     plt.xlabel('f [Hz]')
     plt.ylabel('lambda [m]')
+    plt.title('figure 2: lambda_L as a function of f', fontsize = 7)
     plt.legend([f'mode {k}' for k,_ in enumerate (f_mode)])
 
     plt.savefig('examples/modes.png')

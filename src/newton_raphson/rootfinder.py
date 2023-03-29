@@ -32,8 +32,7 @@ def newton_raphson(zeta_0, g, dgdx, eps_s):
         zeta_r += dx
 
         eps_a = np.abs(dx/zeta_r)
-        eps_a_arr = np.array(eps_a_arr)
         eps_a_arr.append(eps_a)
         it = it + 1
 
-    return (zeta_r, it, eps_a_arr)
+    return (zeta_r, it, eps_a_arr, eps_a)
